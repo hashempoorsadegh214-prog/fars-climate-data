@@ -1,0 +1,32 @@
+name: Download FARS Climate Data
+
+on:
+  workflow_dispatch:   # اجرای دستی با دکمه
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run downloader
+        env:
+          CDSAPI_URL: ${{ secrets.CDSAPI_URL }}
+          CDSAPI_KEY: ${{ secrets.CDSAPI_KEY }}
+        run: python download_data.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: fars-climate-data
+          path: "*.zip"
