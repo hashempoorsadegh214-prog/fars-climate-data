@@ -1,7 +1,7 @@
 name: Download FARS Climate Data
 
 on:
-  workflow_dispatch:   # اجرای دستی با دکمه
+  workflow_dispatch:
 
 jobs:
   download:
@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fars-climate-data
-          path: "*.zip"
+          path: fars_cmip6_data.zip
