@@ -1,0 +1,25 @@
+# محدوده جغرافیایی استان فارس (North, West, South, East)
+bounding_box:
+  - 31.5
+  - 50.5
+  - 27.0
+  - 55.5
+
+# مدل‌های اقلیمی CMIP6
+models:
+  - name: "EC-Earth3"
+    grid: "gr"
+  - name: "MPI-ESM1-2-HR"
+    grid: "gn"
+  - name: "NorESM2-MM"
+    grid: "gn"
+
+# سناریوها
+scenarios:
+  - "ssp245"
+  - "ssp585"
+
+# متغیرها
+variables:
+  - "2m_temperature"
+  - "total_precipitation"
